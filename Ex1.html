@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 1 </title>
+  </head>
+  <body>
+    <h1>Prime Number Checker</h1>
+    <p>Enter an integer value n and click the button to display all prime numbers less than or equal to n:</p>
+    <input type="number" id="input" />
+    <button onclick="findPrimes()">Find Primes</button>
+    <div id="output"></div>
+    
+    <script>
+         function isPrime(n) {
+        if (n <= 1) {
+          return false;
+        }
+        for (let i = 2; i < n; i++) {
+          if (n % i === 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+      
+      function findPrimes() {
+        const n = document.getElementById("input").value;
+        let primes = [];
+        for (let i = 2; i <= n; i++) {
+          if (isPrime(i)) {
+            primes.push(i);
+          }
+        }
+        document.getElementById("output").innerHTML = primes.join(", ");
+      }
+    </script>
+  </body>
+</html>
+

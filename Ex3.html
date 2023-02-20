@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 3</title>
+  </head>
+  <body>
+    <h1>Add Names</h1>
+    
+    <div>
+      <label for="name-input">Enter a name:</label>
+      <input type="text" id="name-input" />
+      <button onclick="addName()">Add</button>
+    </div>
+    
+    <div>
+      <h2>Names</h2>
+      <ul id="name-list"></ul>
+    </div>
+    
+    <script>
+      const names = [];
+      function addName() {
+        const nameInput = document.getElementById("name-input");
+        const nameList = document.getElementById("name-list");
+        const newName = nameInput.value.trim();
+        if (newName !== "") {
+          names.push(newName);
+          names.sort();
+          nameList.innerHTML = names.map(name => `<li>${name}</li>`).join("");
+          nameInput.value = "";
+        }
+      }
+    </script>
+  </body>
+</html>

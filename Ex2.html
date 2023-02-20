@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise 2</title>
+    <style>
+      .color {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Color Picker</h1>
+    
+    <div>
+      <div class="color" style="background-color: red" onclick="chooseColor('red')"></div>
+      <div class="color" style="background-color: orange" onclick="chooseColor('orange')"></div>
+      <div class="color" style="background-color: yellow" onclick="chooseColor('yellow')"></div>
+      <div class="color" style="background-color: green" onclick="chooseColor('green')"></div>
+      <div class="color" style="background-color: blue" onclick="chooseColor('blue')"></div>
+      <div class="color" style="background-color: purple" onclick="chooseColor('purple')"></div>
+    </div>
+    
+    <div>
+      <p>Pick a color to change the color of the text below:</p>
+      <input type="text" id="text-input" />
+      <div id="text-output" style="margin-top: 10px;">Hello world!</div>
+    </div>
+    
+    <div>
+      <h2>Color History</h2>
+      <ul id="color-history"></ul>
+    </div>
+    
+    <script>
+      function chooseColor(color) {
+        const textInput = document.getElementById("text-input");
+        const textOutput = document.getElementById("text-output");
+        const colorHistory = document.getElementById("color-history");
+        textOutput.style.color = color;
+        colorHistory.innerHTML += `<li>${color}</li>`;
+      }
+    </script>
+  </body>
+</html>
